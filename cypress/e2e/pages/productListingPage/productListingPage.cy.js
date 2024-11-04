@@ -14,6 +14,9 @@ describe("test suite for product listing page", () => {
     cy.get("h1").should("contain", "Apparel & Shoes");
     cy.get("#products-orderby").select("Price: Low to High");
   });
+
+
+  // gpt
     it("Verify sorting by price (low to high)", () => {
       cy.get(".top-menu > :nth-child(4) > a").click();
       cy.get("h1").should("contain", "Apparel & Shoes");
@@ -31,10 +34,13 @@ describe("test suite for product listing page", () => {
         const sortedPrices = [...prices].sort((a, b) => a - b);
         expect(prices).to.deep.equal(sortedPrices);
       });
+
+
     });
-
-
-    it.only("Verify sorting by name (A to Z)", () => {
+  
+  
+// gpt
+    it("Verify sorting by name (A to Z)", () => {
       cy.get(".top-menu > :nth-child(4) > a").click();
       cy.get("h1").should("contain", "Apparel & Shoes");
 
@@ -52,5 +58,18 @@ describe("test suite for product listing page", () => {
       });
     });
 
+  
+  
+  it.only("Verify that clicking on a product image opens the product page", () => {
 
+    cy.get(".top-menu > :nth-child(1) > a").click();
+    cy.get(":nth-child(1) > .product-item > .picture > a > img").click();
+    cy.get("h1").should("contain", "Computing and Internet");
+    cy.get(".short-description").should('contain', 'More Than 100 tips about computing and internet.')
+    cy.get(".label").should("contain", "Availability:");
+  });
+
+  // test case for pagination
 });
+
+// cy.get("select").select(1).invoke("val").should("eq", "1");

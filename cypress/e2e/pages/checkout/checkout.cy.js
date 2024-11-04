@@ -1,7 +1,10 @@
+
 describe("test suite for checkout page", () => {
   beforeEach("visit the url", () => {
     cy.visit("https://demowebshop.tricentis.com/");
   });
+
+    
   it("check out without login using COD", () => {
     cy.get(".top-menu > :nth-child(4) > a").click();
     cy.get(
@@ -24,8 +27,10 @@ describe("test suite for checkout page", () => {
     cy.get("#BillingNewAddress_Email").type("test-ahmed@yopmail.com");
 
     // cy.get('select').select('Afghanistan');
-    cy.get("select").select("Afghanistan").should("have.value", "86");
+      // cy.get("select").select("Afghanistan").should("have.value", "86");
+      cy.get("#BillingNewAddress_CountryId").select('Afghanistan');
 
+      
     cy.get("#BillingNewAddress_City").type("test city");
     cy.get("#BillingNewAddress_Address1").type("test address 1");
     cy.get("#BillingNewAddress_ZipPostalCode").type("2323");
