@@ -48,7 +48,7 @@ describe("test suite for product detail page", () => {
           cy.get(".cart-qty").should("be.visible");
       });
     
-     it.only("test case 4: Verify default sorting by position", () => {
+     it("test case 4: Verify default sorting by position", () => {
        cy.get(".top-menu > :nth-child(4) > a").click();
        cy.get("h1").should("contain", "Apparel & Shoes");
        cy.get(
@@ -56,6 +56,14 @@ describe("test suite for product detail page", () => {
        ).click();
         cy.get("#products-orderby").should("contain", "Position");
      });
+  
+  it.only("tes  case 5: Verify no ATC button when adding an out-of-stock item to the cart", () => {
+    cy.get(".top-menu > :nth-child(6) > a").click();
+    cy.get(":nth-child(3) > .product-item > .details > .product-title > a").click();
+    cy.get(".value").should("contain", "Out of stock");
+
+    cy.contains('Add to cart').should('not.exist');
+  });
     
    
     
