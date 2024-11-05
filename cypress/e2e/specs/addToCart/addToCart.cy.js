@@ -1,5 +1,7 @@
+import ATC from "../../../pages/ATC";
+import PDP from "../../../pages/PDP";
 
-
+let notification = "The product has been added to your shopping cart";
 describe("test suite for add to cart page", () => {
   beforeEach("visit url", () => {
     cy.visit("https://demowebshop.tricentis.com/");
@@ -7,18 +9,24 @@ describe("test suite for add to cart page", () => {
 
   
   //test case 1
-  it("test case 1: Verify adding a product to the cart from the product listing page", () => {
-    cy.get(".top-menu > :nth-child(3)").click();
-    cy.get(":nth-child(2) > .sub-category-item > .title > a").click();
-    cy.get(
-      ":nth-child(1) > .product-item > .details > .add-info > .buttons > .button-2"
-    ).click();
-    cy.get(".content").should(
-      "contain",
-      "The product has been added to your shopping cart"
-    );
-    cy.get(".ico-cart > .cart-label").click();
-    cy.get(".product-name").should("contain", "Smartphone");
+  it.only("test case 1: Verify adding a product to the cart from the product listing page", () => {
+    // cy.get(".top-menu > :nth-child(3)").click();
+    // cy.get(":nth-child(2) > .sub-category-item > .title > a").click();
+    // cy.get(
+    //   ":nth-child(1) > .product-item > .details > .add-info > .buttons > .button-2"
+    // ).click();
+    // cy.get(".content").should(
+    //   "contain",
+    //   "The product has been added to your shopping cart"
+    // );
+
+    // cy.get(".ico-cart > .cart-label").click();
+    // cy.get(".product-name").should("contain", "Smartphone");
+
+    
+    PDP.selectItem();
+    ATC.clickCartButton(notification)
+
   });
 
   //test case 2
@@ -130,7 +138,7 @@ describe("test suite for add to cart page", () => {
 
 
 
-  it.only("Verify emptying the cart removes all items", () => {
+  it("Verify emptying the cart removes all items", () => {
     cy.get(".top-menu > :nth-child(1) > a").click();
 
     // adding first item to cart

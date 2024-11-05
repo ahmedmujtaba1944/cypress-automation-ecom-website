@@ -1,3 +1,4 @@
+import Register from '../../../pages/Register'
 
 
 describe("Test Suite for Registration Form", () => {
@@ -19,31 +20,48 @@ describe("Test Suite for Registration Form", () => {
     cy.get("#vote-poll-1").should("be.visible");
   });
 
-  it("Test case 2:Verify successful registration with valid details", () => {
-    cy.get(".ico-register").click();
-    cy.get('[type="radio"]').first().check();
-    cy.get("#FirstName").type("tester");
-    cy.get("#LastName").type("ahmed");
-    cy.get("#Email").type("test-ahmed3@yopmail.com");
-    cy.get("#Password").type("Test@1234");
-    cy.get("#ConfirmPassword").type("Test@1234");
-    cy.get("#register-button").click();
-    cy.get(".result").should("contain", "Your registration completed");
+ 
+  it.only("Test case 2:Verify successful registration with valid details", () => {
+
+   let  fnName = "Tester"
+    let lName = "Mujtaba"
+    let password = "12345678"
+    let conPassword = "12345678"
+    let result = "Your registration completed";
+
+    const email =
+      "tester-ahmed" +
+      Math.random().toString(36).substring(2, 3) +
+      "@gmail.com";
+
+    Register.clickRegisterLink();
+    Register.enterDetails(fnName, lName, email, password, conPassword);
+    Register.clickRegisterButton(result);
   });
 
+
+
+
   it("Test case 3:Verify password and confirmation password must match", () => {
-    cy.get(".ico-register").click();
-    cy.get('[type="radio"]').first().check();
-    cy.get("#FirstName").type("tester");
-    cy.get("#LastName").type("ahmed");
-    cy.get("#Email").type("test-ahmed4@yopmail.com");
-    cy.get("#Password").type("Test@1234");
-    cy.get("#ConfirmPassword").type("Test@4321");
-    cy.get("#register-button").click();
-    cy.get(".field-validation-error").should(
-      "contain",
-      "The password and confirmation password do not match."
-    );
+
+ let fnName = "Tester";
+ let lName = "Mujtaba";
+ let password = "12345678";
+ let conPassword = "87654321";
+ let result = "The password and confirmation password do not match.";
+
+ const email =
+   "tester-ahmed" + Math.random().toString(36).substring(2, 3) + "@gmail.com";
+
+ Register.clickRegisterLink();
+ Register.enterDetails(fnName, lName, email, password, conPassword);
+ Register.clickRegisterButton(result);
+
+   
+    // cy.get(".field-validation-error").should(
+    //   "contain",
+    //   "The password and confirmation password do not match."
+    // );
   });
 
   it("Test case 4:Verify all fields are required before submission", () => {
@@ -63,7 +81,7 @@ describe("Test Suite for Registration Form", () => {
     );
   });
 
-  it.only("Test case 6:Verify duplicate email registration", () => {
+  it("Test case 6:Verify duplicate email registration", () => {
     cy.get(".ico-register").click();
     cy.get('[type="radio"]').first().check();
     cy.get("#FirstName").type("tester");

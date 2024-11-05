@@ -1,0 +1,8 @@
+{
+    "login_link" : ".ico-login",
+    "enter_email" : "#Email",
+    "enter_password": "#Password",
+    "click_rememberme" : "#RememberMe",
+    "click_login_button": "form > .buttons > .button-1",
+    "verify_login": ".header-links > ul > :nth-child(1) > .account" 
+}

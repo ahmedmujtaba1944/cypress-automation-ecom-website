@@ -1,0 +1,5 @@
+{
+    "click_navbar" :".top-menu > :nth-child(4) > a",
+    "click_first_item":":nth-child(1) > .product-item > .details > .product-title > a"
+    
+}
