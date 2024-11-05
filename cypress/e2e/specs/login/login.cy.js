@@ -14,53 +14,46 @@ describe("Test suite for Login page", () => {
     Login.clickLoginLink();
     Login.enterCredentials(email, password);
     Login.clickLoginButton();
+    Login.verifyLogin();
   });
 
   it("test case 2: Successful login with Remember Me option selected", () => {
       Login.clickLoginLink();
       Login.enterCredentials(email, password);
       Login.clickRememberMe();
-      Login.clickLoginButton();
+    Login.clickLoginButton();
+    Login.verifyLogin();
   });
 
-  it("test case 3:Password reset with unregistered email", () => {
-    cy.get(".ico-login").click();
-    cy.get(".forgot-password > a").click();
-    cy.get("#Email").type(invalidEmail);
-    cy.get("form > .buttons > .button-1").click();
-    cy.get(".result").should("contain", "Email not found.");
-  });
+ it("test case 3:Password reset with unregistered email", () => {
+   Login.clickLoginLink();
+   Login.clickForgotPasswordLink();
+   Login.enterInavlidEamil(invalidEmail);
+   Login.clickRecoveryButton();
+   Login.notFoundMessage();
+ });
   it("test case 4: Successful password reset via email", () => {
-    cy.get(".ico-login").click();
-    cy.get(".forgot-password > a").click();
-    cy.get("#Email").type(email);
-    cy.get("form > .buttons > .button-1").click();
-    cy.get(".result").should(
-      "contain",
-      "Email with instructions has been sent to you."
-    );
+     Login.clickLoginLink();
+     Login.clickForgotPasswordLink();
+     Login.enterInavlidEamil(email);
+     Login.clickRecoveryButton();
+     Login.forgotSuccessfulSendMessage();
   });
 
   it("test case 5: Incorrect password for a valid username", () => {
-    cy.get(".ico-login").click();
-    cy.get("#Email").type(email);
-    cy.get("#Password").type(invalidPassword);
-    cy.get("form > .buttons > .button-1").click();
-    cy.get(".validation-summary-errors > span").should(
-      "contain",
-      "Login was unsuccessful. Please correct the errors and try again."
-    );
-    cy.get(".validation-summary-errors > ul > li").should(
-      "contain",
-      "The credentials provided are incorrect"
-    );
+        Login.clickLoginLink();
+        Login.enterCredentials(email, invalidPassword);
+    Login.clickLoginButton();
+    Login.invalidCredentialMessage();
   });
 
-  it("test case 6: Empty username field", () => {
-    cy.get(".ico-login").click();
-    //  cy.get("#Email").type(email);
-    cy.get("#Password").type(password);
-    cy.get("form > .buttons > .button-1").click();
+  
+  it.only("test case 6: Empty username field", () => {
+    let empEmail = "";
+
+    Login.clickLoginLink();
+    Login.enterCredentials(empEmail, invalidPassword);
+    Login.clickLoginButton();
     cy.get(".validation-summary-errors > span").should(
       "contain",
       "Login was unsuccessful. Please correct the errors and try again."

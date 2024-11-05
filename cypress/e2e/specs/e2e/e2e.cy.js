@@ -1,7 +1,7 @@
 import Login    from "../../../pages/Login";
 import ATC from "../../../pages/ATC";
 import PDP from "../../../pages/PDP";
-import Checkout from "../../../pages/checkout";
+import Checkout from "../../../pages/Checkout";
 
 let email = "test-ahmed@yopmail.com";
 let password = "12345678";
