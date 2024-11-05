@@ -10,20 +10,7 @@ describe("test suite for add to cart page", () => {
   
   //test case 1
   it.only("test case 1: Verify adding a product to the cart from the product listing page", () => {
-    // cy.get(".top-menu > :nth-child(3)").click();
-    // cy.get(":nth-child(2) > .sub-category-item > .title > a").click();
-    // cy.get(
-    //   ":nth-child(1) > .product-item > .details > .add-info > .buttons > .button-2"
-    // ).click();
-    // cy.get(".content").should(
-    //   "contain",
-    //   "The product has been added to your shopping cart"
-    // );
-
-    // cy.get(".ico-cart > .cart-label").click();
-    // cy.get(".product-name").should("contain", "Smartphone");
-
-    
+  
     PDP.selectItem();
     ATC.clickCartButton(notification)
 
