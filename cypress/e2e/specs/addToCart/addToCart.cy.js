@@ -1,6 +1,7 @@
 import ATC from "../../../pages/ATC";
 import PDP from "../../../pages/PDP";
 
+
 let notification = "The product has been added to your shopping cart";
 describe("test suite for add to cart page", () => {
   beforeEach("visit url", () => {
@@ -44,6 +45,7 @@ describe("test suite for add to cart page", () => {
     );
     cy.wait(2000);
     cy.get(".cart-qty").should("contain", 3);
+
   });
 
 

@@ -1,0 +1,10 @@
+{
+    "continue_button_billing_address" : "#billing-buttons-container > .button-1",
+    "continue_button_shipping_address" : "#shipping-buttons-container > .button-1",
+    "select_shipping_method": "#shippingoption_1",
+    "continue_button_shipping_method" : "#shipping-method-buttons-container > .button-1",
+    "select_cod_button" : "#paymentmethod_0",
+    "continue_button_payment_method": "#payment-method-buttons-container > .button-1",
+    "continue_button_payment_information": "#payment-info-buttons-container > .button-1",
+    "continue_button_order_confirm": "#confirm-order-buttons-container > .button-1"
+}
