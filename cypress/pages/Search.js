@@ -12,7 +12,7 @@ class Search {
     Apparel & Shoes;
   }
   static searchProductApparel() {
-     cy.get(SearchObjects.field_searchBar).type(ItemData.Apparel & Shoes.item1);
+     cy.get(SearchObjects.field_searchBar).type(ItemData.ApparelShoes.item1);
     cy.get(SearchObjects.button_search).eq(0).click();
   }
 }

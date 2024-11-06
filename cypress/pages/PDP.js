@@ -3,9 +3,7 @@ import PdfObject from '../fixtures/PageObjects/PDP.json'
 
   
 class PDP {
-  static clickFirstItem() {
-    cy.get(PdfObject.click_first_item).click();
-  }
+  
 
     static verifyAvailability(value) {
       cy.get(PdfObject.verify_avaliblity_value).should('contain',value);

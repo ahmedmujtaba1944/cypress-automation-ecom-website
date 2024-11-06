@@ -4,7 +4,11 @@
     "click_cart_remove_check" :".remove-from-cart > input",
     "click_update_cart_button":".update-cart-button",
     "click_terms_service" : "#termsofservice",
-    "click_checkout_button" : "#checkout"
+    "click_checkout_button" : "#checkout",
+    "empty_cart_message" : ".order-summary-content",
+    "cart_quantity" : ".cart-qty",
+    "successful_content" : ".content"
+    
 
 
 }
