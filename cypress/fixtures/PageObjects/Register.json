@@ -7,5 +7,7 @@
     "enter_password": "#Password",
     "enter_confirm_password": "#ConfirmPassword",
     "click_register_button": "#register-button",
-    "verify_result": ".result"
+    "verify_result": ".result",
+    "password_length_message" : ":nth-child(1) > .field-validation-error > span",
+    "duplicate_email_error_message" : ".validation-summary-errors > ul > li"
 }

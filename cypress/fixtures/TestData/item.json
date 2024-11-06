@@ -1,10 +1,13 @@
 {
   "Books": {
     "item1": "Computing and Internet",
-    "item2": "Copy of Computing and Internet EX"
+    "item2": "Copy of Computing and Internet EX",
+    "item3" : "Science",
+    "item4" : "Health Book"
   },
-  "Electronic": {
-    "item1": "",
-    "item2": ""
+  "Jewelry": {
+    "item1": "Create Your Own Jewelry",
+    "item2": "Black & White Diamond Heart",
+    "item3" : "Diamond Pave Earrings"
   }
 }

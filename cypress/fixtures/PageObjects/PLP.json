@@ -1,0 +1,8 @@
+{
+    "click_navbar" :".top-menu > :nth-child(4) > a",
+    "click_first_item":":nth-child(1) > .product-item > .details > .product-title > a",
+    "verify_page_title" :  "h1",
+    "verify_product_sort_value" : "#products-orderby",
+    "item_title" : ".product-title > a"
+    
+}

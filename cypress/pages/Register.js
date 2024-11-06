@@ -18,9 +18,25 @@ class Register {
         
     }
 
-    static clickRegisterButton(result) {
+    static clickRegisterButton() {
         cy.get(RegisterObjects.click_register_button).click();
+        
+    }
+
+    static verifyResult(result) {
         cy.contains(result).should("exist");
+    }
+
+    static passwordLengthMessage(result) {
+        cy.contains(result).should("exist");
+    }
+    static duplicateEmailErrorMessage(result) {
+        // cy.contains(result).should("exist");
+        cy.wait(2000)
+        cy.get(RegisterObjects.duplicate_email_error_message).should(
+          "contain",
+          "The specified email already exists"
+        );
     }
 }
 
