@@ -1,6 +1,7 @@
 import Login    from "../../../pages/Login";
 import ATC from "../../../pages/ATC";
 import PDP from "../../../pages/PDP";
+import PLP from "../../../pages/PLP"
 import Checkout from "../../../pages/Checkout";
 
 let email = "test-ahmed@yopmail.com";
@@ -17,7 +18,10 @@ describe("test suite for e2e", () => {
         Login.clickLoginLink();
         Login.enterCredentials(email, password);
         Login.clickLoginButton();
-        PDP.selectItem();
+      // PDP.selectItem();
+       PLP.clickNabar4();
+      PLP.verifyPageTitle("Apparel & Shoes");
+      PDP.clickFirstItem();
         ATC.clickCartButton(notification);
         ATC.goToCheckoutPage();
         Checkout.billingAddress();

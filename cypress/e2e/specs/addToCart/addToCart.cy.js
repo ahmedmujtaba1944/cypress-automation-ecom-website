@@ -1,5 +1,6 @@
 import ATC from "../../../pages/ATC";
 import PDP from "../../../pages/PDP";
+import PLP from ""
 
 
 let notification = "The product has been added to your shopping cart";
@@ -12,8 +13,11 @@ describe("test suite for add to cart page", () => {
   //test case 1
   it.only("test case 1: Verify adding a product to the cart from the product listing page", () => {
   
-    PDP.selectItem();
-    ATC.clickCartButton(notification)
+    PLP.clickNabar4();
+    PLP.verifyPageTitle("Apparel & Shoes");
+    PDP.clickFirstItem();
+    ATC.clickCartButton();
+    ATC.verifyNotification(notification)
 
   });
 

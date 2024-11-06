@@ -8,7 +8,12 @@ class Search {
   }
   static searchProductJewelry() {
      cy.get(SearchObjects.field_searchBar).type(ItemData.Jewelry.item1);
-     cy.get(SearchObjects.button_search).eq(0).click();
+    cy.get(SearchObjects.button_search).eq(0).click();
+    Apparel & Shoes;
+  }
+  static searchProductApparel() {
+     cy.get(SearchObjects.field_searchBar).type(ItemData.Apparel & Shoes.item1);
+    cy.get(SearchObjects.button_search).eq(0).click();
   }
 }
 

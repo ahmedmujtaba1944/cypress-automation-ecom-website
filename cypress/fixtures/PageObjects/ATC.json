@@ -1,5 +1,5 @@
 {
-    "click_cart_button" : "#add-to-cart-button-5",
+    "click_cart_button" : ".add-to-cart-button",
     "click_cart_icon" :".ico-cart > .cart-label",
     "click_cart_remove_check" :".remove-from-cart > input",
     "click_update_cart_button":".update-cart-button",

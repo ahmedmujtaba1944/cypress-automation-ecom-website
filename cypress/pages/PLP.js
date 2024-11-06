@@ -21,6 +21,10 @@ class PLP {
     static verifyItemTitle() {
         cy.get(PLPObject.item_title).should('contain', ItemData.Jewelry.item1);
     }
+
+    static clickItemWithNoAddToCart() {
+        cy.get(PLPObject.click_item_with_no_addtocart).click();
+    }
 }
 
 export default PLP;
