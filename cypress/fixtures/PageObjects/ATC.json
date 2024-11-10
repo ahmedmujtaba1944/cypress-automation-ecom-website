@@ -8,7 +8,5 @@
     "empty_cart_message" : ".order-summary-content",
     "cart_quantity" : ".cart-qty",
     "successful_content" : ".content"
-    
-
 
 }

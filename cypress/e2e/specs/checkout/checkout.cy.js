@@ -1,10 +1,55 @@
-
+import Login from "../../../pages/Login";
+import ATC from "../../../pages/ATC";
+import PDP from "../../../pages/PDP";
+import PLP from "../../../pages/PLP";
+import Checkout from "../../../pages/Checkout";
+import Search from "../../../pages/Search";
 describe("test suite for checkout page", () => {
   beforeEach("visit the url", () => {
     cy.visit("https://demowebshop.tricentis.com/");
   });
+  it("checkout login user, with COD", () => {
+    Login.clickLoginLink();
+    Login.enterCredentials(email, password);
+    Login.clickLoginButton();
+    // PDP.selectItem();
+    Search.searchProductApparel();
+    PLP.clickFirstItem();
+    ATC.clickCartButton();
+    ATC.verifyNotification(notification);
+    cy.wait(2000);
+    ATC.clickCartIcon();
+    ATC.clickTermServiceButton();
+    ATC.goToCheckoutPage();
+    Checkout.billingAddress();
+    Checkout.shippingAddress();
+    Checkout.shippingMethod();
+    Checkout.paymentMethod();
+    Checkout.paymentInforamtion();
+    Checkout.orderConfirm();
+  });
 
-    
+  it("checkout login user, with payment method", () => {
+    Login.clickLoginLink();
+    Login.enterCredentials(email, password);
+    Login.clickLoginButton();
+    // PDP.selectItem();
+    Search.searchProductApparel();
+    PLP.clickFirstItem();
+    ATC.clickCartButton();
+    ATC.verifyNotification(notification);
+    cy.wait(2000);
+    ATC.clickCartIcon();
+    ATC.clickTermServiceButton();
+    ATC.goToCheckoutPage();
+    Checkout.billingAddress();
+    Checkout.shippingAddress();
+    Checkout.shippingMethod();
+    Checkout.paymentMethodCard();
+    Checkout.EnterCardDetails("eden lane ", 5425233430109903, 786);
+    Checkout.orderConfirm();
+  });
+
   it("check out without login using COD", () => {
     cy.get(".top-menu > :nth-child(4) > a").click();
     cy.get(
@@ -27,10 +72,9 @@ describe("test suite for checkout page", () => {
     cy.get("#BillingNewAddress_Email").type("test-ahmed@yopmail.com");
 
     // cy.get('select').select('Afghanistan');
-      // cy.get("select").select("Afghanistan").should("have.value", "86");
-      cy.get("#BillingNewAddress_CountryId").select('Afghanistan');
+    // cy.get("select").select("Afghanistan").should("have.value", "86");
+    cy.get("#BillingNewAddress_CountryId").select("Afghanistan");
 
-      
     cy.get("#BillingNewAddress_City").type("test city");
     cy.get("#BillingNewAddress_Address1").type("test address 1");
     cy.get("#BillingNewAddress_ZipPostalCode").type("2323");

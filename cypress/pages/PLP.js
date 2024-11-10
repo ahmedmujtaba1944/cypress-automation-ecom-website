@@ -1,6 +1,6 @@
 import Search from "./Search";
-import PLPObject from "../fixtures/PageObjects/PLP.json"
-import ItemData from "../fixtures/TestData/item.json"
+import PLPObject from "../fixtures/PageObjects/PLP.json";
+import ItemData from "../fixtures/TestData/item.json";
 class PLP {
   static clickNabar4() {
     cy.get(PLPObject.click_navbar).click();

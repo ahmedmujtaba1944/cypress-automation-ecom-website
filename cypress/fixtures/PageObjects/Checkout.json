@@ -6,5 +6,9 @@
     "select_cod_button" : "#paymentmethod_0",
     "continue_button_payment_method": "#payment-method-buttons-container > .button-1",
     "continue_button_payment_information": "#payment-info-buttons-container > .button-1",
-    "continue_button_order_confirm": "#confirm-order-buttons-container > .button-1"
+    "continue_button_order_confirm": "#confirm-order-buttons-container > .button-1",
+    "select_card_button" : "#paymentmethod_2",
+    "enter_card_holder_name" : "#CardholderName",
+    "enter_card_number" : "#CardNumber",
+    "enter_card_code" :  "#CardCode"
 }

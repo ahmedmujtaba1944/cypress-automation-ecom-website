@@ -9,5 +9,6 @@
     "click_register_button": "#register-button",
     "verify_result": ".result",
     "password_length_message" : ":nth-child(1) > .field-validation-error > span",
-    "duplicate_email_error_message" : ".validation-summary-errors > ul > li"
+    "duplicate_email_error_message" : ".validation-summary-errors > ul > li",
+    "verify_personal_detail_title" : ".page-body > :nth-child(2) > .title > strong"
 }
