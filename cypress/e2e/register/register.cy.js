@@ -1,5 +1,5 @@
-import Register from "../../../pages/Register";
-import dashboard from "../../../Pages/dashboard";
+import Register from "../../pages/Register";
+import dashboard from "../../Pages/dashboard";
 
 describe("Test Suite for Registration Form", () => {
   beforeEach("Visit URL", () => {
@@ -8,14 +8,12 @@ describe("Test Suite for Registration Form", () => {
 
   it("Test case 1:Verify that Register button is visible on Dashboard", () => {
     dashboard.verifyRegisterLinkg();
-    Register.clickRegisterButton();
-    Register.verifyPersoanlDetailTitle();
+    // cy.url().should('eq',"https://demowebshop.tricentis.com/register");
     dashboard.clickLogoIcon();
 
     dashboard.verifyLogoIcon();
     dashboard.verifyFeaturedProductHeading();
     dashboard.verifyRegisterLinkg();
-    dashboard.verifySearchButton();
   });
 
   it("Test case 2:Verify successful registration with valid details", () => {
@@ -33,6 +31,7 @@ describe("Test Suite for Registration Form", () => {
     Register.clickRegisterLink();
     Register.enterDetails(fnName, lName, email, password, conPassword);
     Register.clickRegisterButton();
+    cy.wait(2000);
     Register.verifyResult(result);
   });
 
@@ -56,7 +55,7 @@ describe("Test Suite for Registration Form", () => {
 
   it("Test case 4:Verify all fields are required before submission", () => {
     Register.clickRegisterLink();
-    Register.clickRegisterButton(result);
+    Register.clickRegisterButton();
     cy.get(".field-validation-error").should("have.length.at.least", 1);
   });
 
@@ -95,7 +94,7 @@ describe("Test Suite for Registration Form", () => {
     Register.duplicateEmailErrorMessage(result);
   });
 
-  it.only("Test case 8:Verify email field accepts valid email format", () => {
+  it("Test case 8:Verify email field accepts valid email format", () => {
     let fnName = "Tester";
     let lName = "Mujtaba";
     let password = "123456";

@@ -1,5 +1,5 @@
-import Search from "../../../pages/Search";
-import PLP from "../../../pages/PLP";
+import Search from "../../pages/Search";
+import PLP from "../../pages/PLP";
 
 describe("test suite for product listing page", () => {
   beforeEach("visit url", () => {
@@ -19,13 +19,12 @@ describe("test suite for product listing page", () => {
     PLP.verifySortValue("Price: Low to High");
   });
 
-  it("Verify Search product from PLP", () => {
+  it("test case 3: Verify Search product from PLP", () => {
     Search.searchProductJewelry();
     PLP.verifyItemTitle();
   });
 
-  // gpt
-  it("Verify sorting by price (low to high)", () => {
+  it("test case4: Verify sorting by price (low to high)", () => {
     cy.get(".top-menu > :nth-child(4) > a").click();
     cy.get("h1").should("contain", "Apparel & Shoes");
 
@@ -44,8 +43,7 @@ describe("test suite for product listing page", () => {
     });
   });
 
-  // gpt
-  it("Verify sorting by name (A to Z)", () => {
+  it("test case 5: Verify sorting by name (A to Z)", () => {
     cy.get(".top-menu > :nth-child(4) > a").click();
     cy.get("h1").should("contain", "Apparel & Shoes");
 
@@ -63,7 +61,7 @@ describe("test suite for product listing page", () => {
     });
   });
 
-  it("Verify that clicking on a product image opens the product page", () => {
+  it("test case 6: Verify that clicking on a product image opens the product page", () => {
     cy.get(".top-menu > :nth-child(1) > a").click();
     cy.get(":nth-child(1) > .product-item > .picture > a > img").click();
     cy.get("h1").should("contain", "Computing and Internet");

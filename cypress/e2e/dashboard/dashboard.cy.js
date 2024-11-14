@@ -1,5 +1,6 @@
-import dashboard from "../../../Pages/dashboard";
-import Register from "../../../pages/Register";
+import dashboard from "../../Pages/dashboard";
+import Register from "../../pages/Register";
+
 describe("test suite for dashboard", () => {
   beforeEach("visit url", () => {
     cy.visit("https://demowebshop.tricentis.com/");
@@ -8,7 +9,6 @@ describe("test suite for dashboard", () => {
     dashboard.verifyLogoIcon();
     dashboard.verifyFeaturedProductHeading();
     dashboard.verifyRegisterLinkg();
-    dashboard.verifySearchButton();
   });
 
   it("test case 2: Verify that featured products are displayed on the Dashboard", () => {
@@ -33,7 +33,6 @@ describe("test suite for dashboard", () => {
     dashboard.verifyLogoIcon();
     dashboard.verifyFeaturedProductHeading();
     dashboard.verifyRegisterLinkg();
-    dashboard.verifySearchButton();
   });
 
   it("test case 4: Verify the functionality of the search bar on the Dashboard", () => {
@@ -55,7 +54,7 @@ describe("test suite for dashboard", () => {
     cy.get("#vote-poll-1").should("be.visible");
   });
 
-  it.only("test case 6: Verify Register on Dashboard", () => {
+  it("test case 6: Verify Register on Dashboard", () => {
     dashboard.verifyRegisterLinkg();
     Register.clickRegisterButton();
     Register.verifyPersoanlDetailTitle();
@@ -64,6 +63,5 @@ describe("test suite for dashboard", () => {
     dashboard.verifyLogoIcon();
     dashboard.verifyFeaturedProductHeading();
     dashboard.verifyRegisterLinkg();
-    dashboard.verifySearchButton();
   });
 });

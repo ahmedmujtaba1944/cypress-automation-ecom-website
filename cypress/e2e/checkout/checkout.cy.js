@@ -1,14 +1,19 @@
-import Login from "../../../pages/Login";
-import ATC from "../../../pages/ATC";
-import PDP from "../../../pages/PDP";
-import PLP from "../../../pages/PLP";
-import Checkout from "../../../pages/Checkout";
-import Search from "../../../pages/Search";
+import Login from "../../pages/Login";
+import ATC from "../../pages/ATC";
+import PDP from "../../pages/PDP";
+import PLP from "../../pages/PLP";
+import Checkout from "../../pages/Checkout";
+import Search from "../../pages/Search";
+
+let email = "test-ahmed@yopmail.com";
+let password = "12345678";
+let notification = "The product has been added to your shopping cart";
+
 describe("test suite for checkout page", () => {
   beforeEach("visit the url", () => {
     cy.visit("https://demowebshop.tricentis.com/");
   });
-  it("checkout login user, with COD", () => {
+  it("test case 1:checkout login user, with COD", () => {
     Login.clickLoginLink();
     Login.enterCredentials(email, password);
     Login.clickLoginButton();
@@ -24,12 +29,12 @@ describe("test suite for checkout page", () => {
     Checkout.billingAddress();
     Checkout.shippingAddress();
     Checkout.shippingMethod();
-    Checkout.paymentMethod();
+    Checkout.paymentMethodCOD();
     Checkout.paymentInforamtion();
     Checkout.orderConfirm();
   });
 
-  it("checkout login user, with payment method", () => {
+  it("test case 2: checkout login user, with payment method", () => {
     Login.clickLoginLink();
     Login.enterCredentials(email, password);
     Login.clickLoginButton();
@@ -50,7 +55,7 @@ describe("test suite for checkout page", () => {
     Checkout.orderConfirm();
   });
 
-  it("check out without login using COD", () => {
+  it("test case 3: check out without login using COD", () => {
     cy.get(".top-menu > :nth-child(4) > a").click();
     cy.get(
       ":nth-child(1) > .product-item > .details > .add-info > .buttons > .button-2"

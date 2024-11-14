@@ -1,9 +1,9 @@
-import Login from "../../../pages/Login";
-import ATC from "../../../pages/ATC";
-import PDP from "../../../pages/PDP";
-import PLP from "../../../pages/PLP";
-import Checkout from "../../../pages/Checkout";
-import Search from "../../../pages/Search";
+import Login from "../../pages/Login";
+import ATC from "../../pages/ATC";
+import PDP from "../../pages/PDP";
+import PLP from "../../pages/PLP";
+import Checkout from "../../pages/Checkout";
+import Search from "../../pages/Search";
 
 let email = "test-ahmed@yopmail.com";
 let password = "12345678";
@@ -30,12 +30,12 @@ describe("test suite for e2e", () => {
     Checkout.billingAddress();
     Checkout.shippingAddress();
     Checkout.shippingMethod();
-    Checkout.paymentMethod();
+    Checkout.paymentMethodCOD();
     Checkout.paymentInforamtion();
     Checkout.orderConfirm();
   });
 
-  it.only("e2e flow login user, with payment method", () => {
+  it("e2e flow login user, with payment method", () => {
     Login.clickLoginLink();
     Login.enterCredentials(email, password);
     Login.clickLoginButton();
